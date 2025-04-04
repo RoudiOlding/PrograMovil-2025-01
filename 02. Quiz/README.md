@@ -18,4 +18,8 @@ Paso a paso que usaremos en el proyecto.
 
 ## Diagrama de Despliegue
 
-![Android Studio]: 
+La arquitectura a usar será una aplicación web y una aplicación móvil. La aplicación móvil accede a la aplicación web a través de Internet, mientras que la aplicación web consulta y almacena datos en la base de datos. Este modelo ilustra cómo los clientes interactuán con la aplicación y cómo se gestionan los datos en el servidor.
+
+![Android Studio](imgs/grafh.png)
+
+*<b>Figura 02: </b> Diagrama de despliegue*
