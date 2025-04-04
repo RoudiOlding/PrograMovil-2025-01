@@ -7,8 +7,8 @@ Este aplicativo móvil es una plataforma interactiva dedicada a los aficionados 
 Además, la aplicación contará con diferentes niveles de dificultad, desde preguntas más fáciles hasta desafíos complejos para expertos. Los usuarios podrán seguir su progreso a lo largo del tiempo, acceder a estadísticas personalizadas. Con una interfaz amigable y actualizaciones constantes con nuevos contenidos, el aplicativo promete ser una herramienta divertida y educativa para todos los apasionados del fútbol y otros deportes.
 
 - [Configuración del Ambiente de Desarrollo](#configuración-del-ambiente-de-desarrollo)
-
-## Configuración del Ambiente de Desarrollo
+- [Diagrama de Despliegue](#diagrama-de-despliegue)
+- [Requerimientos no Funcionales](#requerimientos-no-funcionales)
 
 Paso a paso que usaremos en el proyecto.
 
@@ -20,6 +20,8 @@ Paso a paso que usaremos en el proyecto.
 
 La arquitectura a usar será una aplicación web y una aplicación móvil. La aplicación móvil accede a la aplicación web a través de Internet, mientras que la aplicación web consulta y almacena datos en la base de datos. Este modelo ilustra cómo los clientes interactuán con la aplicación y cómo se gestionan los datos en el servidor.
 
-![Android Studio](imgs/grafh.png)
+![Diagrama de Despliegue](imgs/grafh.png)
 
 *<b>Figura 02: </b> Diagrama de despliegue*
+
+## Requerimientos no Funcionales
