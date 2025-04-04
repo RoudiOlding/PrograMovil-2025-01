@@ -25,3 +25,39 @@ La arquitectura a usar será una aplicación web y una aplicación móvil. La ap
 *<b>Figura 02: </b> Diagrama de despliegue*
 
 ## Requerimientos no Funcionales
+
+Disponibilidad: La API en Replit y el servidor de mapas deben estar accesibles en todo momento para garantizar el funcionamiento de la aplicación móvil.
+
+Escalabilidad: La API y la base de datos SQLite3 deben manejar múltiples solicitudes concurrentes sin afectar el rendimiento.
+
+Seguridad: Debe implementarse autenticación y cifrado en la comunicación entre la aplicación móvil, la API y el servidor de mapas para proteger los datos del usuario.
+
+Rendimiento: Las consultas a la base de datos y el consumo de los servicios API deben ser rápidos para no afectar la experiencia del usuario.
+
+Mantenibilidad: El código de la API y la aplicación móvil debe ser modular y bien documentado para facilitar futuras actualizaciones y correcciones.
+
+Compatibilidad: La aplicación móvil debe funcionar en diferentes versiones de Android y ser compatible con distintas resoluciones de pantalla.
+
+Usabilidad: La interfaz de la aplicación debe ser intuitiva y fácil de usar para que los usuarios puedan acceder a los quizzes y mapas sin complicaciones.
+
+## Diagrama de Casos de Uso
+El siguiente diagrama de casos de uso describe las interacciones dentro del Sistema de Quizzes, en el cual los usuarios pueden registrarse, iniciar sesión, crear y responder quizzes, así como visualizar su historial. Por otro lado, los administradores tienen funciones adicionales, como la gestión de preguntas y el acceso al historial de quizzes. Este modelo permite comprender los roles y funcionalidades clave dentro del sistema.
+
+![Casos de Uso](imgs/CasosDeUso.png)
+*<b>Figura 03: </b> Diagrama Casos de Uso*
+
+A continuación se detallan los casos de uso:
+
+| ID  | Caso de Uso             | Descripción                                      |
+|-----|-------------------------|--------------------------------------------------|
+| UC1 | Registrarse            | Permite a un usuario crear una cuenta en el sistema. |
+| UC2 | Iniciar sesión         | Permite a un usuario autenticarse en el sistema. |
+| UC3 | Crear Quiz             | Permite a un usuario generar un nuevo quiz con preguntas. |
+| UC4 | Responder Quiz         | Permite a un usuario contestar un quiz disponible. |
+| UC5 | Ver historial de Quizzes | Permite a un usuario o administrador revisar quizzes realizados. |
+| UC6 | Gestionar Preguntas    | Permite a un administrador crear, editar o eliminar preguntas. |
+
+Y el diagrama de clases es el siguiente:
+
+![Clases](imgs/grafh2.png)
+*<b>Figura 04: </b> Clases*
