@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import './sign_in_controller.dart';
+import 'sign_in_controller.dart';
 
 class SignInPage extends StatelessWidget {
-  SignInController control = Get.put(SignInController()); // Como si fuera un constructor, un componente con sus funciones y vistas
+  SignInController control = Get.put(SignInController());
+
   Widget _buildBody(BuildContext context) {
-    return SafeArea(child: Text('Login'));
+    return SafeArea(
+        child: ClipOval(
+      child: Image.asset('assets/images/zapatillas_correr.jpg', fit: BoxFit.cover),
+    ));
   }
 
   @override
