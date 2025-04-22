@@ -12,7 +12,7 @@ class SignInPage extends StatelessWidget {
         child: Column(
       children: [
         const SizedBox(
-          height: 210,
+          height: 50,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -25,14 +25,26 @@ class SignInPage extends StatelessWidget {
                     shape: BoxShape.circle,
                     border: Border.all(
                         color: Theme.of(context).colorScheme.primaryFixed,
-                        width: 2.0))),
-            ClipOval(
-              child: Image.asset('assets/images/zapatillas_correr.jpg',
-                  fit: BoxFit.cover),
-            ),
-            const Text('abajo')
+                        width: 10.0)),
+                child: ClipOval(
+                  child: Image.asset('assets/images/zapatillas_correr.jpg',
+                      fit: BoxFit.cover),
+                )),
           ],
-        )
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        Container(
+            width: MediaQuery.of(context).size.width * 70,
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primaryFixed,
+                border: Border.all(
+                    color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
+                    width: 10.0)),
+                    
+        const Text('Hola mundo')
       ],
     ));
   }
