@@ -5,10 +5,26 @@ import 'sign_in_controller.dart';
 class SignInPage extends StatelessWidget {
   SignInController control = Get.put(SignInController());
 
+  SignInPage({super.key});
+
   Widget _buildBody(BuildContext context) {
     return SafeArea(
-        child: ClipOval(
-      child: Image.asset('assets/images/zapatillas_correr.jpg', fit: BoxFit.cover),
+        child: Column(
+      children: [
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ClipOval(
+              child: Image.asset('assets/images/zapatillas_correr.jpg',
+                  fit: BoxFit.cover),
+            ),
+            Text('abajo')
+          ],
+        )
+      ],
     ));
   }
 

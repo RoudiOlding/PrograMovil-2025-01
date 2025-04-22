@@ -3,7 +3,7 @@ import 'package:ulima_quiz/configs/theme_1.dart';
 import 'package:ulima_quiz/configs/util.dart';
 import './pages/sign_in/sign_in_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
