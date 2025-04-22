@@ -11,17 +11,26 @@ class SignInPage extends StatelessWidget {
     return SafeArea(
         child: Column(
       children: [
-        SizedBox(
-          height: 10,
+        const SizedBox(
+          height: 210,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primaryFixed,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                        color: Theme.of(context).colorScheme.primaryFixed,
+                        width: 2.0))),
             ClipOval(
               child: Image.asset('assets/images/zapatillas_correr.jpg',
                   fit: BoxFit.cover),
             ),
-            Text('abajo')
+            const Text('abajo')
           ],
         )
       ],
