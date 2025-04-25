@@ -42,48 +42,70 @@ class SignInPage extends StatelessWidget {
               border: Border.all(
                   color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
                   width: 2.0)),
-          child: Column(children: [
-            Text('Ingresa Esta Información'),
-            SizedBox(
-              height: 25,
-            ),
-            TextField(
-              obscureText: true, // Esto oculta el texto ingresado
-              decoration: InputDecoration(
-                hintText: 'Usuario',
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-                prefixIcon:
-                    Icon(Icons.person), // Aquí agregamos el ícono de usuario
-                //border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            TextField(
-              obscureText: true, // Esto oculta el texto ingresado
-              decoration: InputDecoration(
-                labelText: 'Contraseña',
-                hintText: 'Ingresa tu contraseña',
-                prefixIcon: Icon(Icons.lock), // Ícono de candado
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Acción del botón
-              },
-              child: Text('Botón de 100% de Ancho'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50), // 100% del ancho
-              ),
-            )
-          ]),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(15),
+                child: Column(children: [
+                  Text('Ingresa Esta Información'),
+                  TextField(
+                    obscureText: true, // Esto oculta el texto ingresado
+                    decoration: InputDecoration(
+                      hintText: 'Usuario',
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      prefixIcon: Icon(
+                          Icons.person), // Aquí agregamos el ícono de usuario
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  TextField(
+                    obscureText: true, // Esto oculta el texto ingresado
+                    decoration: InputDecoration(
+                      hintText: 'Contraseña',
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      prefixIcon: Icon(Icons.lock), // Ícono de candado
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Acción del botón
+                    },
+                    child: Text('INGRESAR'),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, 40), // 100% del ancho
+                      backgroundColor:
+                          Color(0xFFFF7F2A), // Color de fondo personalizado
+                      foregroundColor: Colors.white, // Color del texto blanco
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.zero, // Sin redondeo en las esquinas
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Text('No tienes una cuenta, '),
+                      Text(
+                        'creala aquí',
+                        style: TextStyle(
+                          fontWeight: FontWeight
+                              .bold, // Esto hace que el texto sea en negrita
+                        ),
+                      )
+                    ],
+                  )
+                ]),
+              )
+            ],
+          ),
         ),
-        Text('Ingresa Esta Información')
       ],
     ));
   }
