@@ -5,13 +5,11 @@ import 'sign_in_controller.dart';
 class SignInPage extends StatelessWidget {
   SignInController control = Get.put(SignInController());
 
-  SignInPage({super.key});
-
   Widget _buildBody(BuildContext context) {
     return SafeArea(
         child: Column(
       children: [
-        const SizedBox(
+        SizedBox(
           height: 50,
         ),
         Row(
@@ -27,24 +25,64 @@ class SignInPage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.primaryFixed,
                         width: 10.0)),
                 child: ClipOval(
-                  child: Image.asset('assets/images/zapatillas_correr.jpg',
+                  child: Image.asset(
+                      'assets/images/zapatillas_correr.jpg', // usamos la definifica en el .yaml
                       fit: BoxFit.cover),
                 )),
           ],
         ),
-        const SizedBox(
+        SizedBox(
           height: 40,
         ),
         Container(
-            width: MediaQuery.of(context).size.width * 70,
-            padding: const EdgeInsets.all(15),
-            decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primaryFixed,
-                border: Border.all(
-                    color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
-                    width: 10.0)),
-                    
-        const Text('Hola mundo')
+          width: MediaQuery.of(context).size.width * 0.7,
+          padding: EdgeInsets.all(15),
+          decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primaryFixed,
+              border: Border.all(
+                  color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
+                  width: 2.0)),
+          child: Column(children: [
+            Text('Ingresa Esta Información'),
+            SizedBox(
+              height: 25,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Usuario',
+                hintText: 'Ingresa tu nombre de usuario',
+                prefixIcon:
+                    Icon(Icons.person), // Aquí agregamos el ícono de usuario
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            TextField(
+              obscureText: true, // Esto oculta el texto ingresado
+              decoration: InputDecoration(
+                labelText: 'Contraseña',
+                hintText: 'Ingresa tu contraseña',
+                prefixIcon: Icon(Icons.lock), // Ícono de candado
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Acción del botón
+              },
+              child: Text('Botón de 100% de Ancho'),
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50), // 100% del ancho
+              ),
+            )
+          ]),
+        ),
+        Text('Ingresa Esta Información')
       ],
     ));
   }
