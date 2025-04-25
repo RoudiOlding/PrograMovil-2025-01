@@ -86,7 +86,7 @@ class SignInPage extends StatelessWidget {
     );
   }
 
-  Widget _buildBody(BuildContext context) {
+  Widget _layer1(BuildContext context) {
     return SafeArea(
         child: Column(
       children: [
@@ -118,6 +118,19 @@ class SignInPage extends StatelessWidget {
         _form(context)
       ],
     ));
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: _layer1(context),
+        ),
+      ],
+    );
   }
 
   @override
