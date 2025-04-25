@@ -5,6 +5,87 @@ import 'sign_in_controller.dart';
 class SignInPage extends StatelessWidget {
   SignInController control = Get.put(SignInController());
 
+  Widget _form(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.7,
+      padding: EdgeInsets.all(15),
+      decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primaryFixed,
+          border: Border.all(
+              color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
+              width: 2.0)),
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(15),
+            child: Column(children: [
+              Text('Ingresa tu información'),
+              SizedBox(
+                height: 15,
+              ),
+              TextField(
+                obscureText: true, // Esto oculta el texto ingresado
+                decoration: InputDecoration(
+                  hintText: 'Usuario',
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  prefixIcon:
+                      Icon(Icons.person), // Aquí agregamos el ícono de usuario
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              TextField(
+                obscureText: true, // Esto oculta el texto ingresado
+                decoration: InputDecoration(
+                  hintText: 'Contraseña',
+                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  prefixIcon: Icon(Icons.lock), // Ícono de candado
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  // Acción del botón
+                },
+                child: Text('INGRESAR'),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 40), // 100% del ancho
+                  backgroundColor:
+                      Color(0xFFFF7F2A), // Color de fondo personalizado
+                  foregroundColor: Colors.white, // Color del texto blanco
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.zero, // Sin redondeo en las esquinas
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  Text('No tienes una cuenta, '),
+                  Text(
+                    'creala aquí',
+                    style: TextStyle(
+                      fontWeight: FontWeight
+                          .bold, // Esto hace que el texto sea en negrita
+                    ),
+                  )
+                ],
+              )
+            ]),
+          )
+        ],
+      ),
+    );
+  }
+
   Widget _buildBody(BuildContext context) {
     return SafeArea(
         child: Column(
@@ -34,84 +115,7 @@ class SignInPage extends StatelessWidget {
         SizedBox(
           height: 40,
         ),
-        Container(
-          width: MediaQuery.of(context).size.width * 0.7,
-          padding: EdgeInsets.all(15),
-          decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primaryFixed,
-              border: Border.all(
-                  color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
-                  width: 2.0)),
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.all(15),
-                child: Column(children: [
-                  Text('Ingresa tu información'),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  TextField(
-                    obscureText: true, // Esto oculta el texto ingresado
-                    decoration: InputDecoration(
-                      hintText: 'Usuario',
-                      floatingLabelBehavior: FloatingLabelBehavior.never,
-                      prefixIcon: Icon(
-                          Icons.person), // Aquí agregamos el ícono de usuario
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  TextField(
-                    obscureText: true, // Esto oculta el texto ingresado
-                    decoration: InputDecoration(
-                      hintText: 'Contraseña',
-                      floatingLabelBehavior: FloatingLabelBehavior.never,
-                      prefixIcon: Icon(Icons.lock), // Ícono de candado
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Acción del botón
-                    },
-                    child: Text('INGRESAR'),
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: Size(double.infinity, 40), // 100% del ancho
-                      backgroundColor:
-                          Color(0xFFFF7F2A), // Color de fondo personalizado
-                      foregroundColor: Colors.white, // Color del texto blanco
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.zero, // Sin redondeo en las esquinas
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Text('No tienes una cuenta, '),
-                      Text(
-                        'creala aquí',
-                        style: TextStyle(
-                          fontWeight: FontWeight
-                              .bold, // Esto hace que el texto sea en negrita
-                        ),
-                      )
-                    ],
-                  )
-                ]),
-              )
-            ],
-          ),
-        ),
+        _form(context)
       ],
     ));
   }
