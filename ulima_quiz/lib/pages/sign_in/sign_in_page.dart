@@ -48,12 +48,13 @@ class SignInPage extends StatelessWidget {
               height: 25,
             ),
             TextField(
+              obscureText: true, // Esto oculta el texto ingresado
               decoration: InputDecoration(
-                labelText: 'Usuario',
-                hintText: 'Ingresa tu nombre de usuario',
+                hintText: 'Usuario',
+                floatingLabelBehavior: FloatingLabelBehavior.never,
                 prefixIcon:
                     Icon(Icons.person), // Aquí agregamos el ícono de usuario
-                border: OutlineInputBorder(),
+                //border: OutlineInputBorder(),
               ),
             ),
             SizedBox(
