@@ -47,7 +47,10 @@ class SignInPage extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(15),
                 child: Column(children: [
-                  Text('Ingresa Esta Información'),
+                  Text('Ingresa tu información'),
+                  SizedBox(
+                    height: 15,
+                  ),
                   TextField(
                     obscureText: true, // Esto oculta el texto ingresado
                     decoration: InputDecoration(
@@ -88,6 +91,9 @@ class SignInPage extends StatelessWidget {
                             BorderRadius.zero, // Sin redondeo en las esquinas
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 15,
                   ),
                   Row(
                     children: [
