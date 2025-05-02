@@ -5,10 +5,12 @@ import 'sign_in_controller.dart';
 class SignInPage extends StatelessWidget {
   SignInController control = Get.put(SignInController());
 
+  SignInPage({super.key});
+
   Widget _form(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.7,
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primaryFixed,
           border: Border.all(
@@ -17,7 +19,7 @@ class SignInPage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               top: 0, // Padding superior
               bottom: 0, // Padding inferior
               left: 25, // Padding izquierdo
@@ -25,8 +27,8 @@ class SignInPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text('Ingresa Esta Información'),
-                TextField(
+                const Text('Ingresa Esta Información'),
+                const TextField(
                   decoration: InputDecoration(
                     labelText: 'Usuario',
                     hintText: 'Usuario',
@@ -36,42 +38,43 @@ class SignInPage extends StatelessWidget {
                     //border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                TextField(
+                const TextField(
                   obscureText: true, // Esto oculta el texto ingresado
                   decoration: InputDecoration(
                     hintText: 'Contraseña',
                     prefixIcon: Icon(Icons.lock), // Ícono de candado
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 ElevatedButton(
                   onPressed: () {
                     // Acción del botón
                   },
-                  child: Text('INGRESAR'),
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 40), // 100% del ancho
+                    minimumSize:
+                        const Size(double.infinity, 40), // 100% del ancho
                     backgroundColor:
-                        Color(0xFFFF7F2A), // Color de fondo personalizado
+                        const Color(0xFFFF7F2A), // Color de fondo personalizado
                     foregroundColor: Colors.white, // Color del texto blanco
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius:
                           BorderRadius.zero, // Sin redondeo en las esquinas
                     ),
                   ),
+                  child: Text('INGRESAR'),
                 ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          Row(
+          const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('No tienes una cuenta, '),
@@ -93,7 +96,7 @@ class SignInPage extends StatelessWidget {
     return SafeArea(
         child: Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
         Row(
@@ -114,7 +117,7 @@ class SignInPage extends StatelessWidget {
                 )),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 40,
         ),
         _form(context)
@@ -130,7 +133,7 @@ class SignInPage extends StatelessWidget {
             left: 0, // Alinea al inicio del eje horizontal
             right: 0, // Alinea al final del eje horizontal
             child: _layer1(context)),
-        Positioned(
+        const Positioned(
           bottom: 40, // Coloca el widget a 40 píxeles del fondo
           left: 0, // Alinea al inicio del eje horizontal
           right: 0, // Alinea al final del eje horizontal
