@@ -25,15 +25,55 @@ class CreateAccountPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const Text('Ingresa Esta Información'),
+                const Text('¡Creemos una cuenta!'),
                 const SizedBox(
                   height: 15,
                 ),
                 const TextField(
-                  obscureText: true, // Esto oculta el texto ingresado
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    labelText: 'Nombre Completo',
+                    hintText: 'Nombre Completo',
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    prefixIcon: Icon(Icons.person), // Ícono de candado
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    labelText: 'Correo',
+                    hintText: 'Correo',
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    prefixIcon: Icon(Icons.mail_outline), // Ícono de candado
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    labelText: 'Usuario',
+                    hintText: 'Usuario',
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    prefixIcon:
+                        Icon(Icons.nest_cam_wired_stand), // Ícono de candado
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    labelText: 'Contraseña',
                     hintText: 'Contraseña',
-                    prefixIcon: Icon(Icons.lock), // Ícono de candado
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    prefixIcon:
+                        Icon(Icons.password_outlined), // Ícono de candado
                   ),
                 ),
                 const SizedBox(
@@ -54,7 +94,7 @@ class CreateAccountPage extends StatelessWidget {
                           BorderRadius.zero, // Sin redondeo en las esquinas
                     ),
                   ),
-                  child: Text('Recuperar contraseña'),
+                  child: Text('Crear cuenta'),
                 ),
               ],
             ),
