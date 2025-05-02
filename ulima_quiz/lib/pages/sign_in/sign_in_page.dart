@@ -5,10 +5,12 @@ import 'sign_in_controller.dart';
 class SignInPage extends StatelessWidget {
   SignInController control = Get.put(SignInController());
 
+  SignInPage({super.key});
+
   Widget _form(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.7,
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primaryFixed,
           border: Border.all(
@@ -17,13 +19,13 @@ class SignInPage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: Column(children: [
-              Text('Ingresa tu información'),
-              SizedBox(
+              const Text('Ingresa tu información'),
+              const SizedBox(
                 height: 15,
               ),
-              TextField(
+              const TextField(
                 obscureText: true, // Esto oculta el texto ingresado
                 decoration: InputDecoration(
                   hintText: 'Usuario',
@@ -33,10 +35,10 @@ class SignInPage extends StatelessWidget {
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              TextField(
+              const TextField(
                 obscureText: true, // Esto oculta el texto ingresado
                 decoration: InputDecoration(
                   hintText: 'Contraseña',
@@ -45,29 +47,30 @@ class SignInPage extends StatelessWidget {
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               ElevatedButton(
                 onPressed: () {
                   // Acción del botón
                 },
-                child: Text('INGRESAR'),
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 40), // 100% del ancho
+                  minimumSize:
+                      const Size(double.infinity, 40), // 100% del ancho
                   backgroundColor:
-                      Color(0xFFFF7F2A), // Color de fondo personalizado
+                      const Color(0xFFFF7F2A), // Color de fondo personalizado
                   foregroundColor: Colors.white, // Color del texto blanco
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius:
                         BorderRadius.zero, // Sin redondeo en las esquinas
                   ),
                 ),
+                child: Text('INGRESAR'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Row(
+              const Row(
                 children: [
                   Text('No tienes una cuenta, '),
                   Text(
@@ -90,7 +93,7 @@ class SignInPage extends StatelessWidget {
     return SafeArea(
         child: Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
         Row(
@@ -112,7 +115,7 @@ class SignInPage extends StatelessWidget {
                 )),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 40,
         ),
         _form(context)
