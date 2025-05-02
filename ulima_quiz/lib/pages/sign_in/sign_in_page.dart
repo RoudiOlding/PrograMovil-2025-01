@@ -66,7 +66,7 @@ class SignInPage extends StatelessWidget {
                           BorderRadius.zero, // Sin redondeo en las esquinas
                     ),
                   ),
-                  child: Text('INGRESAR'),
+                  child: const Text('INGRESAR'),
                 ),
               ],
             ),

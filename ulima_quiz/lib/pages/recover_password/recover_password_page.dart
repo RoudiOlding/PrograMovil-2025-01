@@ -5,6 +5,8 @@ import 'recover_password_controller.dart';
 class RecoverPasswordPage extends StatelessWidget {
   RecoverPasswordController control = Get.put(RecoverPasswordController());
 
+  RecoverPasswordPage({super.key});
+
   Widget _form(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.7,
@@ -56,7 +58,7 @@ class RecoverPasswordPage extends StatelessWidget {
                           BorderRadius.zero, // Sin redondeo en las esquinas
                     ),
                   ),
-                  child: Text('Recuperar contraseña'),
+                  child: const Text('Recuperar contraseña'),
                 ),
               ],
             ),
@@ -114,7 +116,7 @@ class RecoverPasswordPage extends StatelessWidget {
           top: 0,
           left: 0,
           child: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
             iconSize: 50.0, // Tamaño del icono
             color: Colors.blue, // Color del icono
             onPressed: () {

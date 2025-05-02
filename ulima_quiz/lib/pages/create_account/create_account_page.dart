@@ -5,6 +5,8 @@ import 'create_account_controller.dart';
 class CreateAccountPage extends StatelessWidget {
   CreateAccountController control = Get.put(CreateAccountController());
 
+  CreateAccountPage({super.key});
+
   Widget _form(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.7,
@@ -94,7 +96,7 @@ class CreateAccountPage extends StatelessWidget {
                           BorderRadius.zero, // Sin redondeo en las esquinas
                     ),
                   ),
-                  child: Text('Crear cuenta'),
+                  child: const Text('Crear cuenta'),
                 ),
               ],
             ),
@@ -152,7 +154,7 @@ class CreateAccountPage extends StatelessWidget {
           top: 0,
           left: 0,
           child: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
             iconSize: 50.0, // Tamaño del icono
             color: Colors.blue, // Color del icono
             onPressed: () {
