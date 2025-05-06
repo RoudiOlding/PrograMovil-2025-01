@@ -1,9 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class SignInController extends GetxController {
   TextEditingController txtUser = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
+
+  RxString message = ''.obs; // elementos observables, RX
+  Rx<MaterialColor> messageColor = Colors.red.obs;
 
   void signIn(BuildContext context) {
     // esto te manda a otra página, una redirección, navegación. Para eso usamos el context
@@ -12,8 +16,15 @@ class SignInController extends GetxController {
     String password = txtPassword.text;
     if (user == 'admin' && password == '123') {
       print('Ir a home');
+      message.value = "Usuario válido";
+      messageColor.value = Colors.green;
     } else {
       print('error');
+      message.value = "Usuario y/o contraseña no es válidos";
+      messageColor.value = Colors.red;
     }
+    Future.delayed(Duration(seconds: 5), () {
+      message.value = "";
+    });
   }
 }

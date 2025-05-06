@@ -79,6 +79,21 @@ class SignInPage extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
+          Obx(() => control.message.value != ""
+              ? Column(
+                  children: [
+                    Text(
+                      control.message.value,
+                      style: TextStyle(
+                        color: control.messageColor.value,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    )
+                  ],
+                )
+              : SizedBox.shrink()),
           const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
