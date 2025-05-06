@@ -117,8 +117,8 @@ class SignInPage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.primaryFixed,
                         width: 10.0)),
                 child: ClipOval(
-                  child:
-                      Image.asset('assets/images/g23.png', fit: BoxFit.cover),
+                  child: Image.asset('assets/images/ulises.png',
+                      fit: BoxFit.cover),
                 )),
           ],
         ),

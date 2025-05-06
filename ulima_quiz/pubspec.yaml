@@ -22,6 +22,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/zapatillas_correr.jpg
+    - assets/images/ulises.png
   #  - images/a_dot_ham.jpeg
   # fonts:
   #   - family: Schyler

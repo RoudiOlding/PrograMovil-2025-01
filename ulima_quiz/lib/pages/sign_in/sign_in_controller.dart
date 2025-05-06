@@ -8,7 +8,12 @@ class SignInController extends GetxController {
   void signIn(BuildContext context) {
     // esto te manda a otra página, una redirección, navegación. Para eso usamos el context
     print('Hola desde controller');
-    print(txtUser.text);
-    print(txtPassword.text);
+    String user = txtUser.text;
+    String password = txtPassword.text;
+    if (user == 'admin' && password == '123') {
+      print('Ir a home');
+    } else {
+      print('error');
+    }
   }
 }
