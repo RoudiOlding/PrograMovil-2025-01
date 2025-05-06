@@ -58,6 +58,7 @@ class SignInPage extends StatelessWidget {
                   onPressed: () {
                     // Acción del botón
                     print(':)');
+                    control.signIn(context);
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize:

@@ -5,7 +5,10 @@ class SignInController extends GetxController {
   TextEditingController txtUser = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
 
-  void SignIn(BuildContext context()) {
+  void signIn(BuildContext context) {
     // esto te manda a otra página, una redirección, navegación. Para eso usamos el context
+    print('Hola desde controller');
+    print(txtUser.text);
+    print(txtPassword.text);
   }
 }
