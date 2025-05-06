@@ -27,4 +27,12 @@ class SignInController extends GetxController {
       message.value = "";
     });
   }
+
+  void goToSignUp(BuildContext context) {
+    print('TODO: irnos SignUp');
+  }
+
+  void goToResetPassword(BuildContext context) {
+    print('TODO: irnos ResetPassword');
+  }
 }

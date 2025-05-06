@@ -153,21 +153,24 @@ class SignInPage extends StatelessWidget {
             left: 0, // Alinea al inicio del eje horizontal
             right: 0, // Alinea al final del eje horizontal
             child: _layer1(context)),
-        const Positioned(
+        Positioned(
           bottom: 40, // Coloca el widget a 40 píxeles del fondo
           left: 0, // Alinea al inicio del eje horizontal
           right: 0, // Alinea al final del eje horizontal
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center, // Centra el contenido
             children: [
-              Text('Olvidaste tu contraseña?, '),
-              Text(
-                'recupérala aquí',
-                style: TextStyle(
-                  fontWeight:
-                      FontWeight.bold, // Hace que el texto sea en negrita
-                ),
-              ),
+              const Text('Olvidaste tu contraseña?, '),
+              GestureDetector(
+                  onTap: () {
+                    control.goToResetPassword(context);
+                  },
+                  child: const Text(
+                    'recupérala aquí',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, //
+                    ),
+                  ))
             ],
           ),
         ),
