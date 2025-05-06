@@ -28,8 +28,9 @@ class SignInPage extends StatelessWidget {
             child: Column(
               children: [
                 const Text('Ingresa Esta Información'),
-                const TextField(
-                  decoration: InputDecoration(
+                TextField(
+                  controller: control.txtUser,
+                  decoration: const InputDecoration(
                     labelText: 'Usuario',
                     hintText: 'Usuario',
                     floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -41,8 +42,10 @@ class SignInPage extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const TextField(
-                  obscureText: true, // Esto oculta el texto ingresado
+                TextField(
+                  obscureText: true,
+                  controller:
+                      control.txtPassword, // Esto oculta el texto ingresado
                   decoration: InputDecoration(
                     hintText: 'Contraseña',
                     prefixIcon: Icon(Icons.lock), // Ícono de candado
@@ -54,6 +57,7 @@ class SignInPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Acción del botón
+                    print(':)');
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize:

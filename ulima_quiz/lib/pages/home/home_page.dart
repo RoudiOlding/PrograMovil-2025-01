@@ -1,33 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'home_controller.dart';
+import '../../componentes/resume_card.dart';
+import '../home/home_controller.dart';
 
 class HomePage extends StatelessWidget {
   final HomeController control = Get.put(HomeController());
 
-  const HomePage({super.key});
+  final Color backgroundColor = const Color(0xFFF3E8FF); // Lila suave
+  final Color cardColor = Colors.white;
+  final Color textPrimary = Colors.black87;
+  final Color textSecondary = Colors.black54;
+  final Color accentColor = Color(0xFFFFB085); // Naranja pastel
+  final Color barColor = Color(0xFFE1C9FF); // Lila más fuerte
 
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
-      title: const Text(
-        'Quiz ULima',
-        style: TextStyle(color: Colors.black),
-      ),
-      iconTheme: const IconThemeData(color: Colors.black),
-      actions: const [Icon(Icons.more_vert, color: Colors.black)],
-      elevation: 1,
+      backgroundColor: barColor,
+      title: Text('Quiz ULima', style: TextStyle(color: textPrimary)),
+      actions: const [Icon(Icons.more_vert, color: Colors.black54)],
+      elevation: 0,
     );
   }
 
-  Widget _bottomNavigationBar(BuildContext context) {
+  Widget _buttonNavigationBar(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.black,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white70,
+      backgroundColor: barColor,
+      selectedItemColor: accentColor,
+      unselectedItemColor: textSecondary,
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.bar_chart),
+          icon: Icon(Icons.person),
           label: 'Mi Record',
         ),
         BottomNavigationBarItem(
@@ -42,136 +44,93 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildBody(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: _appBar(context),
-      bottomNavigationBar: _bottomNavigationBar(context),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            // Estadísticas
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      '22',
-                      style: TextStyle(fontSize: 24, color: Colors.black),
-                    ),
-                    Text(
-                      'Cuestionarios\nRealizados',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      '4%',
-                      style: TextStyle(fontSize: 24, color: Colors.black),
-                    ),
-                    Text(
-                      'Porcentaje\nde Aciertos',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 24),
-            // Último quiz
-            FractionallySizedBox(
-              widthFactor: 0.75,
-              child: Container(
-                height: 1,
-                color: Colors.black26,
+  Widget _myRecord(BuildContext context) {
+    return Column(children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Column(
+            children: [
+              Text('22', style: TextStyle(fontSize: 24, color: textPrimary)),
+              Text(
+                'Cuestionarios\nRealizados',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: textSecondary),
               ),
-            ),
-            const SizedBox(height: 24),
-
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black26),
-                borderRadius: BorderRadius.circular(8),
+            ],
+          ),
+          Column(
+            children: [
+              Text('4%', style: TextStyle(fontSize: 24, color: textPrimary)),
+              Text(
+                'Porcentaje\nde Aciertos',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: textSecondary),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "22/07/2025     Aciertos 4%",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    "Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-                    style: TextStyle(color: Colors.black87),
-                  ),
-                  const SizedBox(height: 12),
-                  const Wrap(
-                    spacing: 8,
-                    children: [
-                      Chip(
-                        label: Text("Futbol"),
-                        backgroundColor: Color.fromARGB(255, 241, 239, 239),
-                      ),
-                      Chip(
-                        label: Text("Álgebra"),
-                        backgroundColor: Color.fromARGB(255, 241, 239, 239),
-                      ),
-                      Chip(
-                        label: Text("Trigonometría"),
-                        backgroundColor: Color.fromARGB(255, 241, 239, 239),
-                      ),
-                      Chip(
-                        label: Text("Voley"),
-                        backgroundColor: Color.fromARGB(255, 241, 239, 239),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        foregroundColor: Colors.white,
-                      ),
-                      onPressed: () {},
-                      child: const Text('VER QUIZ'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () {},
-                child: const Text('FILTROS'),
-              ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
-    );
+      const SizedBox(height: 15),
+      Divider(
+        color: textSecondary,
+        thickness: 1.0,
+        indent: 20.0,
+        endIndent: 20.0,
+      )
+    ]);
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: _buildBody(context),
-      debugShowCheckedModeBanner: false,
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      appBar: _appBar(context),
+      bottomNavigationBar: _buttonNavigationBar(context),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              _myRecord(context),
+              const SizedBox(height: 24),
+              ResumeCard(
+                success: 60,
+                created: "22/07/2025",
+                description: "Descripción detallada del quiz realizado.",
+              ),
+              ResumeCard(
+                success: 55,
+                created: "22/07/1988",
+                description: "Otra descripción más larga con detalles.",
+              ),
+              ResumeCard(
+                success: 4,
+                created: "Hoy",
+                description: "Intento con bajo rendimiento.",
+              ),
+              const SizedBox(height: 24),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: accentColor,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
+                  onPressed: () {
+                    // Acción al presionar "FILTROS"
+                  },
+                  child: const Text('FILTROS'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
