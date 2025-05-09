@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class SignInController extends GetxController {
@@ -23,7 +22,7 @@ class SignInController extends GetxController {
       message.value = "Usuario y/o contraseña no es válidos";
       messageColor.value = Colors.red;
     }
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5), () {
       message.value = "";
     });
   }

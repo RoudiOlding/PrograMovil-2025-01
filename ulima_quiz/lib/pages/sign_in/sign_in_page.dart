@@ -46,7 +46,7 @@ class SignInPage extends StatelessWidget {
                   obscureText: true,
                   controller:
                       control.txtPassword, // Esto oculta el texto ingresado
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Contraseña',
                     prefixIcon: Icon(Icons.lock), // Ícono de candado
                   ),
@@ -88,12 +88,12 @@ class SignInPage extends StatelessWidget {
                         color: control.messageColor.value,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     )
                   ],
                 )
-              : SizedBox.shrink()),
+              : const SizedBox.shrink()),
           const Row(
             mainAxisSize: MainAxisSize.min,
             children: [

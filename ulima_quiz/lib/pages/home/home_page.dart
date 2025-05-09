@@ -10,8 +10,10 @@ class HomePage extends StatelessWidget {
   final Color cardColor = Colors.white;
   final Color textPrimary = Colors.black87;
   final Color textSecondary = Colors.black54;
-  final Color accentColor = Color(0xFFFFB085); // Naranja pastel
-  final Color barColor = Color(0xFFE1C9FF); // Lila más fuerte
+  const Color accentColor = Color(0xFFFFB085); // Naranja pastel
+  const Color barColor = Color(0xFFE1C9FF);
+
+  HomePage({super.key}); // Lila más fuerte
 
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
@@ -94,17 +96,17 @@ class HomePage extends StatelessWidget {
             children: [
               _myRecord(context),
               const SizedBox(height: 24),
-              ResumeCard(
+              const ResumeCard(
                 success: 60,
                 created: "22/07/2025",
                 description: "Descripción detallada del quiz realizado.",
               ),
-              ResumeCard(
+              const ResumeCard(
                 success: 55,
                 created: "22/07/1988",
                 description: "Otra descripción más larga con detalles.",
               ),
-              ResumeCard(
+              const ResumeCard(
                 success: 4,
                 created: "Hoy",
                 description: "Intento con bajo rendimiento.",

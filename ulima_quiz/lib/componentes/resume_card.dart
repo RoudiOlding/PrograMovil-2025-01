@@ -6,19 +6,19 @@ class ResumeCard extends StatelessWidget {
   final String description;
 
   const ResumeCard({
-    Key? key,
+    super.key,
     required this.success,
     required this.created,
     required this.description,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    final Color cardBorderColor = const Color(0xFFE6D6FF); // Lila suave
-    final Color textPrimary = Colors.black87;
-    final Color textSecondary = Colors.black54;
-    final Color chipColor = Color(0xFFD1BAFF); // Chip lila pastel
-    final Color buttonColor = Color(0xFFFFB085); // Naranja pastel
+    const Color cardBorderColor = Color(0xFFE6D6FF); // Lila suave
+    const Color textPrimary = Colors.black87;
+    const Color textSecondary = Colors.black54;
+    const Color chipColor = Color(0xFFD1BAFF); // Chip lila pastel
+    const Color buttonColor = Color(0xFFFFB085); // Naranja pastel
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
@@ -27,7 +27,7 @@ class ResumeCard extends StatelessWidget {
         color: Colors.white,
         border: Border.all(color: cardBorderColor),
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 4,
@@ -40,7 +40,7 @@ class ResumeCard extends StatelessWidget {
         children: [
           Text(
             '$created    Aciertos $success%',
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               color: textPrimary,
               fontSize: 16,
@@ -49,16 +49,16 @@ class ResumeCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             description,
-            style: TextStyle(
+            style: const TextStyle(
               color: textSecondary,
               fontSize: 14,
             ),
           ),
           const SizedBox(height: 12),
-          Wrap(
+          const Wrap(
             spacing: 8,
             runSpacing: 4,
-            children: const [
+            children: [
               Chip(
                 label: Text("Fútbol"),
                 backgroundColor: Color(0xFFD1BAFF),
