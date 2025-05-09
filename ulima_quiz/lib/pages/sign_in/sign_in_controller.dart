@@ -17,15 +17,19 @@ class SignInController extends GetxController {
     String password = txtPassword.text;
     User u = User(username: user, password: password);
     ServiceHttpResponse? response = await service.signIn(u);
-    if (user == 'admin' && password == '123') {
-      print('Ir a home');
-      message.value = "Usuario válido";
-      messageColor.value = Colors.green;
+    if (response == null) {
     } else {
-      print('error');
-      message.value = "Usuario y/o contraseña no es válidos";
-      messageColor.value = Colors.red;
+      if (response.status == 200) {
+        print('Ir a home');
+        message.value = "Usuario válido";
+        messageColor.value = Colors.green;
+      } else {
+        print('error');
+        message.value = "Usuario y/o contraseña no es válidos";
+        messageColor.value = Colors.red;
+      }
     }
+
     Future.delayed(const Duration(seconds: 5), () {
       message.value = "";
     });
