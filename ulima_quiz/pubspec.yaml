@@ -23,6 +23,7 @@ flutter:
   assets:
     - assets/images/zapatillas_correr.jpg
     - assets/images/ulises.png
+    - assets/jsons/quizzes.json
   #  - images/a_dot_ham.jpeg
   # fonts:
   #   - family: Schyler

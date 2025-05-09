@@ -94,19 +94,22 @@ class SignInPage extends StatelessWidget {
                   ],
                 )
               : const SizedBox.shrink()),
-          const Row(
+          Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('No tienes una cuenta, '),
-              Text(
-                'creala aquí',
-                style: TextStyle(
-                  fontWeight:
-                      FontWeight.bold, // Esto hace que el texto sea en negrita
-                ),
-              )
+              const Text('No tienes una cuenta, '),
+              GestureDetector(
+                  onTap: () {
+                    control.goToSignUp(context);
+                  },
+                  child: const Text(
+                    'Créala aquí',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold, //
+                    ),
+                  ))
             ],
-          )
+          ),
         ],
       ),
     );

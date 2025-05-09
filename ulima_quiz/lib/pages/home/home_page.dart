@@ -10,8 +10,8 @@ class HomePage extends StatelessWidget {
   final Color cardColor = Colors.white;
   final Color textPrimary = Colors.black87;
   final Color textSecondary = Colors.black54;
-  const Color accentColor = Color(0xFFFFB085); // Naranja pastel
-  const Color barColor = Color(0xFFE1C9FF);
+  final Color accentColor = Color(0xFFFFB085); // Naranja pastel
+  final Color barColor = Color(0xFFE1C9FF);
 
   HomePage({super.key}); // Lila más fuerte
 
@@ -85,6 +85,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    control.initialFetch(context);
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: _appBar(context),

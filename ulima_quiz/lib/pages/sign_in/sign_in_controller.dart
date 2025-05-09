@@ -23,6 +23,7 @@ class SignInController extends GetxController {
         print('Ir a home');
         message.value = "Usuario válido";
         messageColor.value = Colors.green;
+        Navigator.pushNamed(context, '/home');
       } else {
         print('error');
         message.value = "Usuario y/o contraseña no es válidos";
@@ -36,10 +37,10 @@ class SignInController extends GetxController {
   }
 
   void goToSignUp(BuildContext context) {
-    print('TODO: irnos SignUp');
+    Navigator.pushNamed(context, '/create-account');
   }
 
   void goToResetPassword(BuildContext context) {
-    print('TODO: irnos ResetPassword');
+    Navigator.pushNamed(context, '/recover-password');
   }
 }
