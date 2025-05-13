@@ -5,15 +5,14 @@ import '../home/home_controller.dart';
 
 class HomePage extends StatelessWidget {
   final HomeController control = Get.put(HomeController());
-
   final Color backgroundColor = const Color(0xFFF3E8FF); // Lila suave
   final Color cardColor = Colors.white;
   final Color textPrimary = Colors.black87;
   final Color textSecondary = Colors.black54;
-  final Color accentColor = Color(0xFFFFB085); // Naranja pastel
-  final Color barColor = Color(0xFFE1C9FF);
+  final Color accentColor = const Color(0xFFFFB085); // Naranja pastel
+  final Color barColor = const Color(0xFFE1C9FF); // Lila más fuerte
 
-  HomePage({super.key}); // Lila más fuerte
+  HomePage({super.key});
 
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
@@ -91,29 +90,36 @@ class HomePage extends StatelessWidget {
       appBar: _appBar(context),
       bottomNavigationBar: _buttonNavigationBar(context),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              _myRecord(context),
-              const SizedBox(height: 24),
-              const ResumeCard(
-                success: 60,
-                created: "22/07/2025",
-                description: "Descripción detallada del quiz realizado.",
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    _myRecord(context),
+                    const SizedBox(height: 24),
+                    Obx(() {
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: control.quizzes.length,
+                        itemBuilder: (context, index) {
+                          final quiz = control.quizzes[index];
+                          return ResumeCard(
+                              success: control.quizzes[index].points,
+                              created: control.quizzes[index].created,
+                              description: control.quizzes[index].statement);
+                        },
+                      );
+                    }),
+                  ],
+                ),
               ),
-              const ResumeCard(
-                success: 55,
-                created: "22/07/1988",
-                description: "Otra descripción más larga con detalles.",
-              ),
-              const ResumeCard(
-                success: 4,
-                created: "Hoy",
-                description: "Intento con bajo rendimiento.",
-              ),
-              const SizedBox(height: 24),
-              SizedBox(
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -130,8 +136,8 @@ class HomePage extends StatelessWidget {
                   child: const Text('FILTROS'),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

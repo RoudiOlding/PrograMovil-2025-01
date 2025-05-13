@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:ulima_quiz/models/entitties/quiz.dart';
@@ -15,7 +14,11 @@ class HomeController extends GetxController {
     if (result == null) {
       print('no hay respuesta del servidor');
     } else {
-      quizzes.value = result.body;
+      if (result.status == 200) {
+        quizzes.value = result.body;
+      } else {
+        print('error en la respuesta de servidor');
+      }
     }
   }
 }

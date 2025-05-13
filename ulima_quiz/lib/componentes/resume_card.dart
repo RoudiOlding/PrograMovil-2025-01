@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ResumeCard extends StatelessWidget {
   final int success;
-  final String created;
+  final DateTime created;
   final String description;
 
   const ResumeCard({
@@ -11,6 +11,16 @@ class ResumeCard extends StatelessWidget {
     required this.created,
     required this.description,
   });
+
+  String _formatDate(DateTime date) {
+    // Obtener el día, mes y año
+    String day = date.day.toString().padLeft(2, '0');
+    String month = date.month.toString().padLeft(2, '0');
+    String year = date.year.toString();
+
+    // Concatenar en formato dd/MM/yyyy
+    return "$day/$month/$year";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +49,7 @@ class ResumeCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '$created    Aciertos $success%',
+            '${_formatDate(created)}    Aciertos $success%',
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               color: textPrimary,
