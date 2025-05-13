@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../componentes/resume_card.dart';
+import '../../models/entitties/quiz.dart';
 import '../home/home_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -93,29 +94,38 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    _myRecord(context),
-                    const SizedBox(height: 24),
-                    Obx(() {
-                      return ListView.builder(
+              child: Obx(() {
+                if (control.quizzes.isEmpty) {
+                  return Center(
+                    child: Text(
+                      'No hay quizzes disponibles',
+                      style: TextStyle(fontSize: 18, color: Colors.red),
+                    ),
+                  );
+                }
+                return SingleChildScrollView(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      _myRecord(context),
+                      const SizedBox(height: 24),
+                      ListView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: control.quizzes.length,
                         itemBuilder: (context, index) {
                           final quiz = control.quizzes[index];
                           return ResumeCard(
-                              success: control.quizzes[index].points,
-                              created: control.quizzes[index].created,
-                              description: control.quizzes[index].statement);
+                            success: quiz.points,
+                            created: quiz.created,
+                            description: quiz.statement,
+                          );
                         },
-                      );
-                    }),
-                  ],
-                ),
-              ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
