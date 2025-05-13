@@ -13,7 +13,6 @@ class QuizService {
     quizzes =
         data.map((map) => Quiz.fromJson(map as Map<String, dynamic>)).toList();
     serviceResponse.status = 200;
-    print(quizzes);
     serviceResponse.body = quizzes;
     return serviceResponse;
   }
