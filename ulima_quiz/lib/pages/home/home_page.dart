@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../componentes/resume_card.dart';
 import '../../models/entitties/quiz.dart';
+import '../../models/entitties/user.dart';
 import '../home/home_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -85,6 +86,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final User user = ModalRoute.of(context)!.settings.arguments as User;
+    control.user = user;
     control.initialFetch(context);
     return Scaffold(
       backgroundColor: backgroundColor,

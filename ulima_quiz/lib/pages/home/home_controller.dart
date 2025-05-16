@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:ulima_quiz/models/entitties/quiz.dart';
 import 'package:ulima_quiz/models/service_http_response.dart';
 import 'package:ulima_quiz/services/quiz_service.dart';
+import '../../models/entitties/user.dart';
 
 class HomeController extends GetxController {
   QuizService service = QuizService();
   var quizzes = <Quiz>[].obs;
+  User? user = null;
 
   void initialFetch(BuildContext context) async {
     Future<ServiceHttpResponse?> response = service.fetchAll();
