@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
             Expanded(
               child: Obx(() {
                 if (control.quizzes.isEmpty) {
-                  return Center(
+                  return const Center(
                     child: Text(
                       'No hay quizzes disponibles',
                       style: TextStyle(fontSize: 18, color: Colors.red),

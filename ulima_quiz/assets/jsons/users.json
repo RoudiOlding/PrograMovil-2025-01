@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "username": "juanperez",
+        "password": "123",
+        "email": "juan.perez@example.com",
+        "image": "https://example.com/images/juan.jpg",
+        "fullname": "Juan Pérez",
+        "reset_key": "a1b2c3d4e5"
+    },
+    {
+        "id": 2,
+        "username": "mariaramos",
+        "password": "123",
+        "email": "maria.ramos@example.com",
+        "image": "https://example.com/images/maria.png",
+        "fullname": "María Ramos",
+        "reset_key": "f6g7h8i9j0"
+    },
+    {
+        "id": 3,
+        "username": "carloslopez",
+        "password": "123",
+        "email": "carlos.lopez@example.com",
+        "image": "https://example.com/images/carlos.jpeg",
+        "fullname": "Carlos López",
+        "reset_key": "k1l2m3n4o5"
+    },
+    {
+        "id": 4,
+        "username": "anagutierrez",
+        "password": "123",
+        "email": "ana.gutierrez@example.com",
+        "image": "https://example.com/images/ana.jpg",
+        "fullname": "Ana Gutiérrez",
+        "reset_key": "p6q7r8s9t0"
+    }
+]

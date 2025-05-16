@@ -18,11 +18,15 @@ class SignInController extends GetxController {
     User u = User(username: user, password: password);
     ServiceHttpResponse? response = await service.signIn(u);
     if (response == null) {
+      print('error');
+      message.value = "No hay comunicación con el servidor";
+      messageColor.value = Colors.red;
     } else {
       if (response.status == 200) {
         print('Ir a home');
         message.value = "Usuario válido";
         messageColor.value = Colors.green;
+        print(response.body);
         Navigator.pushNamed(context, '/home');
       } else {
         print('error');
