@@ -24,6 +24,10 @@ flutter:
     - assets/images/zapatillas_correr.jpg
     - assets/images/ulises.png
     - assets/jsons/quizzes.json
+    - assets/jsons/quizzes_1.json
+    - assets/jsons/quizzes_2.json
+    - assets/jsons/quizzes_3.json
+    - assets/jsons/quizzes_4.json
     - assets/jsons/users.json
   #  - images/a_dot_ham.jpeg
   # fonts:

@@ -13,7 +13,7 @@ class UserService {
     List<User> users = [];
     users =
         data.map((map) => User.fromJson(map as Map<String, dynamic>)).toList();
-    User? userFound = null;
+    User? userFound;
     for (User user in users) {
       print("=====================");
       print(user);

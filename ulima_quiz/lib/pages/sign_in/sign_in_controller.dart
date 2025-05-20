@@ -28,7 +28,7 @@ class SignInController extends GetxController {
         messageColor.value = Colors.green;
         User user = response.body;
         print(response.body);
-        Navigator.pushNamed(context, '/home', arguments: user);
+        Navigator.pushReplacementNamed(context, '/home', arguments: user);
       } else {
         print('error');
         message.value = "Usuario y/o contraseña no es válidos";

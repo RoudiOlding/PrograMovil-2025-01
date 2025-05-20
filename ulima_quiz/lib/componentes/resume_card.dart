@@ -13,35 +13,35 @@ class ResumeCard extends StatelessWidget {
   });
 
   String _formatDate(DateTime date) {
-    // Obtener el día, mes y año
     String day = date.day.toString().padLeft(2, '0');
     String month = date.month.toString().padLeft(2, '0');
     String year = date.year.toString();
-
-    // Concatenar en formato dd/MM/yyyy
     return "$day/$month/$year";
   }
 
   @override
   Widget build(BuildContext context) {
-    const Color cardBorderColor = Color(0xFFE6D6FF); // Lila suave
-    const Color textPrimary = Colors.black87;
-    const Color textSecondary = Colors.black54;
-    const Color chipColor = Color(0xFFD1BAFF); // Chip lila pastel
-    const Color buttonColor = Color(0xFFFFB085); // Naranja pastel
+    // Nueva paleta de colores
+    const Color cardBgColor = Color(0xFFF1F1F1); // Fondo claro
+    const Color cardBorderColor = Color(0xFFD2D2D2); // Borde medio
+    const Color textPrimary = Color(0xFF272727); // Texto oscuro
+    const Color textSecondary = Color(0xFF585858); // Texto medio
+    const Color chipColor = Color(0xFFE9E9E9); // Fondo chips
+    const Color buttonColor = Color(0xFF6E6E6E); // Botón gris oscuro
+    const Color buttonTextColor = Color(0xFFF1F1F1); // Texto botón claro
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: cardBorderColor),
+        color: cardBgColor,
+        border: Border.all(color: cardBorderColor, width: 1.5),
         borderRadius: BorderRadius.circular(12),
         boxShadow: const [
           BoxShadow(
             color: Colors.black12,
-            blurRadius: 4,
-            offset: Offset(2, 2),
+            blurRadius: 2,
+            offset: Offset(1, 1),
           ),
         ],
       ),
@@ -65,25 +65,30 @@ class ResumeCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          const Wrap(
+          Wrap(
             spacing: 8,
             runSpacing: 4,
             children: [
               Chip(
-                label: Text("Fútbol"),
-                backgroundColor: Color(0xFFD1BAFF),
+                label: Text("Fútbol", style: TextStyle(color: textPrimary)),
+                backgroundColor: chipColor,
+                side: BorderSide.none,
               ),
               Chip(
-                label: Text("Álgebra"),
-                backgroundColor: Color(0xFFD1BAFF),
+                label: Text("Álgebra", style: TextStyle(color: textPrimary)),
+                backgroundColor: chipColor,
+                side: BorderSide.none,
               ),
               Chip(
-                label: Text("Trigonometría"),
-                backgroundColor: Color(0xFFD1BAFF),
+                label:
+                    Text("Trigonometría", style: TextStyle(color: textPrimary)),
+                backgroundColor: chipColor,
+                side: BorderSide.none,
               ),
               Chip(
-                label: Text("Vóley"),
-                backgroundColor: Color(0xFFD1BAFF),
+                label: Text("Vóley", style: TextStyle(color: textPrimary)),
+                backgroundColor: chipColor,
+                side: BorderSide.none,
               ),
             ],
           ),
@@ -93,11 +98,12 @@ class ResumeCard extends StatelessWidget {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: buttonColor,
-                foregroundColor: Colors.white,
+                foregroundColor: buttonTextColor,
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
+                elevation: 0,
               ),
               onPressed: () {},
               child: const Text('VER QUIZ'),

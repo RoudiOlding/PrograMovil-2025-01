@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "statement": "¿Cuál es la capital de Francia?",
+      "created": "2025-05-09T12:30:00Z",
+      "points": 10
+    },
+    {
+      "id": 2,
+      "statement": "¿Quién escribió 'Cien años de soledad'?",
+      "created": "2025-05-08T09:15:00Z",
+      "points": 15
+    },
+    {
+      "id": 3,
+      "statement": "¿Cuál es el resultado de 7 x 8?",
+      "created": "2025-05-07T14:00:00Z",
+      "points": 5
+    }
+  ]
+  

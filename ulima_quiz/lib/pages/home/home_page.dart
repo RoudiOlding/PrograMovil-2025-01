@@ -1,157 +1,103 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../componentes/resume_card.dart';
-import '../../models/entitties/quiz.dart';
-import '../../models/entitties/user.dart';
-import '../home/home_controller.dart';
+import 'package:ulima_quiz/pages/my_record/my_record_page.dart';
+import 'package:ulima_quiz/pages/new_quiz/new_quiz_page.dart';
+import 'package:ulima_quiz/pages/ranking/ranking_page.dart';
+import 'home_controller.dart';
 
-class HomePage extends StatelessWidget {
-  final HomeController control = Get.put(HomeController());
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  static HomeController control = Get.put(HomeController());
+  int _selectedIndex = 0;
   final Color backgroundColor = const Color(0xFFF3E8FF); // Lila suave
-  final Color cardColor = Colors.white;
   final Color textPrimary = Colors.black87;
-  final Color textSecondary = Colors.black54;
   final Color accentColor = const Color(0xFFFFB085); // Naranja pastel
   final Color barColor = const Color(0xFFE1C9FF); // Lila más fuerte
 
-  HomePage({super.key});
+  static final List<Widget> _widgetOptions = <Widget>[
+    MyRecordPage(),
+    MyNewQuizPage(),
+    MyRankingPage(),
+  ];
 
-  PreferredSizeWidget _appBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: barColor,
-      title: Text('Quiz ULima', style: TextStyle(color: textPrimary)),
-      actions: const [Icon(Icons.more_vert, color: Colors.black54)],
-      elevation: 0,
-    );
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
-  Widget _buttonNavigationBar(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: barColor,
-      selectedItemColor: accentColor,
-      unselectedItemColor: textSecondary,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Mi Record',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.play_arrow),
-          label: 'Nuevo Quiz',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.leaderboard),
-          label: 'Ranking',
-        ),
-      ],
-    );
-  }
-
-  Widget _myRecord(BuildContext context) {
-    return Column(children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Column(
-            children: [
-              Text('22', style: TextStyle(fontSize: 24, color: textPrimary)),
-              Text(
-                'Cuestionarios\nRealizados',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: textSecondary),
-              ),
-            ],
+  static List<Widget> _settingOptions(BuildContext context) {
+    return <Widget>[
+      PopupMenuButton<String>(
+        onSelected: (String value) {
+          switch (value) {
+            case 'Perfil':
+              control.goEditProfile(context);
+              break;
+            case 'AcercaDe':
+              control.goAboutUs(context);
+              break;
+            case 'Cerrar sesión':
+              control.exit(context);
+              break;
+          }
+        },
+        itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+          const PopupMenuItem<String>(
+            value: 'Perfil',
+            child: Text('Perfil'),
           ),
-          Column(
-            children: [
-              Text('4%', style: TextStyle(fontSize: 24, color: textPrimary)),
-              Text(
-                'Porcentaje\nde Aciertos',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: textSecondary),
-              ),
-            ],
+          const PopupMenuItem<String>(
+            value: 'AcercaDe',
+            child: Text('click en AcercaDE'),
+          ),
+          const PopupMenuItem<String>(
+            value: 'Cerrar sesión',
+            child: Text('Cerrar sesión'),
           ),
         ],
+        icon: const Icon(Icons.more_vert, color: Colors.black54),
       ),
-      const SizedBox(height: 15),
-      Divider(
-        color: textSecondary,
-        thickness: 1.0,
-        indent: 20.0,
-        endIndent: 20.0,
-      )
-    ]);
+    ];
   }
 
   @override
   Widget build(BuildContext context) {
-    final User user = ModalRoute.of(context)!.settings.arguments as User;
-    control.user = user;
-    control.initialFetch(context);
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: _appBar(context),
-      bottomNavigationBar: _buttonNavigationBar(context),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: Obx(() {
-                if (control.quizzes.isEmpty) {
-                  return const Center(
-                    child: Text(
-                      'No hay quizzes disponibles',
-                      style: TextStyle(fontSize: 18, color: Colors.red),
-                    ),
-                  );
-                }
-                return SingleChildScrollView(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      _myRecord(context),
-                      const SizedBox(height: 24),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: control.quizzes.length,
-                        itemBuilder: (context, index) {
-                          final quiz = control.quizzes[index];
-                          return ResumeCard(
-                            success: quiz.points,
-                            created: quiz.created,
-                            description: quiz.statement,
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              }),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: accentColor,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
-                  onPressed: () {
-                    // Acción al presionar "FILTROS"
-                  },
-                  child: const Text('FILTROS'),
-                ),
-              ),
-            ),
-          ],
-        ),
+      appBar: AppBar(
+        backgroundColor: barColor,
+        title: Text('Quiz ULima', style: TextStyle(color: textPrimary)),
+        actions: _settingOptions(context),
+        elevation: 0,
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: barColor,
+        selectedItemColor: accentColor,
+        unselectedItemColor: Colors.black54,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Mi Record',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.play_arrow),
+            label: 'Nuevo Quiz',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.leaderboard),
+            label: 'Ranking',
+          ),
+        ],
       ),
     );
   }
