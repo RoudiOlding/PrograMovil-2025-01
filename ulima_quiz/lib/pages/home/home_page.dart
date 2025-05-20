@@ -13,10 +13,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   static HomeController control = Get.put(HomeController());
   int _selectedIndex = 0;
-  final Color backgroundColor = const Color(0xFFF3E8FF); // Lila suave
-  final Color textPrimary = Colors.black87;
-  final Color accentColor = const Color(0xFFFFB085); // Naranja pastel
-  final Color barColor = const Color(0xFFE1C9FF); // Lila más fuerte
+
+  final Color backgroundColor = const Color(0xFFF1F1F1); // Fondo principal
+  final Color barColor = const Color(0xFFE9E9E9); // AppBar y BottomNav
+  final Color accentColor = const Color(0xFFD2D2D2); // Color seleccionado
+  final Color textPrimary = const Color(0xFF6E6E6E); // Texto principal
+  final Color textSecondary = const Color(0xFF585858); // Texto no seleccionado
 
   static final List<Widget> _widgetOptions = <Widget>[
     MyRecordPage(),
@@ -33,6 +35,7 @@ class _HomePageState extends State<HomePage> {
   static List<Widget> _settingOptions(BuildContext context) {
     return <Widget>[
       PopupMenuButton<String>(
+        icon: const Icon(Icons.more_vert, color: Color(0xFF585858)),
         onSelected: (String value) {
           switch (value) {
             case 'Perfil':
@@ -46,21 +49,20 @@ class _HomePageState extends State<HomePage> {
               break;
           }
         },
-        itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-          const PopupMenuItem<String>(
+        itemBuilder: (BuildContext context) => const [
+          PopupMenuItem<String>(
             value: 'Perfil',
             child: Text('Perfil'),
           ),
-          const PopupMenuItem<String>(
+          PopupMenuItem<String>(
             value: 'AcercaDe',
-            child: Text('click en AcercaDE'),
+            child: Text('Acerca de'),
           ),
-          const PopupMenuItem<String>(
+          PopupMenuItem<String>(
             value: 'Cerrar sesión',
             child: Text('Cerrar sesión'),
           ),
         ],
-        icon: const Icon(Icons.more_vert, color: Colors.black54),
       ),
     ];
   }
@@ -81,7 +83,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: barColor,
         selectedItemColor: accentColor,
-        unselectedItemColor: Colors.black54,
+        unselectedItemColor: textSecondary,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [

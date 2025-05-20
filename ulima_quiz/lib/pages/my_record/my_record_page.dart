@@ -8,53 +8,58 @@ import 'my_record_controller.dart';
 class MyRecordPage extends StatelessWidget {
   MyRecordController control = Get.put(MyRecordController());
 
-  Widget _myRercod(BuildContext context) {
-    return Column(children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Column(
-            children: [
-              Text(
-                '22',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Theme.of(context).colorScheme.onSecondary),
-              ),
-              Text(
-                'Cuestionarios\nRealizados',
-                textAlign: TextAlign.center,
-                style:
-                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              Text(
-                '4%',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Theme.of(context).colorScheme.onSecondary),
-              ),
-              Text(
-                'Porcentaje\nde Aciertos',
-                textAlign: TextAlign.center,
-                style:
-                    TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-              ),
-            ],
-          ),
-        ],
-      ),
-      const SizedBox(height: 15),
-      Divider(
-        color: Theme.of(context).colorScheme.onSecondary,
-        thickness: 1.0,
-        indent: 20.0,
-        endIndent: 20.0,
-      )
-    ]);
+  // Paleta de colores
+  static const Color backgroundColor = Color(0xFFF1F1F1);
+  static const Color containerColor = Color(0xFFE9E9E9);
+  static const Color borderColor = Color(0xFFD2D2D2);
+  static const Color textPrimary = Color(0xFF272727);
+  static const Color textSecondary = Color(0xFF585858);
+  static const Color buttonColor = Color(0xFF6E6E6E);
+  static const Color buttonTextColor = Color(0xFFF1F1F1);
+
+  Widget _myRecord(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
+              children: [
+                const Text(
+                  '22',
+                  style: TextStyle(fontSize: 24, color: textPrimary),
+                ),
+                const Text(
+                  'Cuestionarios\nRealizados',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: textSecondary),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                const Text(
+                  '4%',
+                  style: TextStyle(fontSize: 24, color: textPrimary),
+                ),
+                const Text(
+                  'Porcentaje\nde Aciertos',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: textSecondary),
+                ),
+              ],
+            ),
+          ],
+        ),
+        const SizedBox(height: 15),
+        const Divider(
+          color: borderColor,
+          thickness: 1.0,
+          indent: 20.0,
+          endIndent: 20.0,
+        ),
+      ],
+    );
   }
 
   Future _showFilterModal(BuildContext context) {
@@ -62,42 +67,36 @@ class MyRecordPage extends StatelessWidget {
       context: context,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ), // Este paréntesis estaba faltando
+      ),
       builder: (BuildContext context) {
         return Container(
           padding: const EdgeInsets.all(16),
           height: 200,
+          color: containerColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Opciones de Filtro',
                 style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.onSecondary),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: textPrimary,
+                ),
               ),
               ListTile(
-                leading: Icon(Icons.filter_alt,
-                    color: Theme.of(context).colorScheme.onSecondary),
-                title: Text(
-                  'Filtro por fecha',
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSecondary),
-                ),
+                leading: const Icon(Icons.filter_alt, color: textSecondary),
+                title: const Text('Filtro por fecha',
+                    style: TextStyle(color: textSecondary)),
                 onTap: () {
                   Navigator.pop(context);
                   // Acción: Filtrar por fecha
                 },
               ),
               ListTile(
-                leading: Icon(Icons.score,
-                    color: Theme.of(context).colorScheme.onSecondary),
-                title: Text(
-                  'Filtro por puntaje',
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSecondary),
-                ),
+                leading: const Icon(Icons.score, color: textSecondary),
+                title: const Text('Filtro por puntaje',
+                    style: TextStyle(color: textSecondary)),
                 onTap: () {
                   Navigator.pop(context);
                   // Acción: Filtrar por puntaje
@@ -111,21 +110,21 @@ class MyRecordPage extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primaryFixed,
-      body: Padding(
+    return Container(
+      color: backgroundColor,
+      child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _myRercod(context),
+            _myRecord(context),
             const SizedBox(height: 24),
             Obx(() {
               return Expanded(
                 child: control.quizzes == null || control.quizzes.isEmpty
-                    ? Center(
+                    ? const Center(
                         child: Text(
                           'No hay quizzes disponibles',
-                          style: TextStyle(fontSize: 18, color: Colors.red),
+                          style: TextStyle(fontSize: 18, color: textSecondary),
                         ),
                       )
                     : ListView.builder(
@@ -146,10 +145,12 @@ class MyRecordPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
+                  backgroundColor: buttonColor,
+                  foregroundColor: buttonTextColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
                   ),
+                  elevation: 0,
                 ),
                 onPressed: () => _showFilterModal(context),
                 child: const Text('FILTROS'),
@@ -167,6 +168,7 @@ class MyRecordPage extends StatelessWidget {
     control.user = user;
     control.initialFetch(context);
     return Scaffold(
+      backgroundColor: backgroundColor,
       resizeToAvoidBottomInset: false,
       appBar: null,
       body: _buildBody(context),

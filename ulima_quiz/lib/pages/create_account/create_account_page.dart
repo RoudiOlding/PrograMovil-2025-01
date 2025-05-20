@@ -7,172 +7,169 @@ class CreateAccountPage extends StatelessWidget {
 
   CreateAccountPage({super.key});
 
+  // Paleta de colores
+  static const Color backgroundColor = Color(0xFFF1F1F1);
+  static const Color containerColor = Color(0xFFE9E9E9);
+  static const Color borderColor = Color(0xFFD2D2D2);
+  static const Color textPrimary = Color(0xFF272727);
+  static const Color textSecondary = Color(0xFF585858);
+  static const Color buttonColor = Color(0xFF6E6E6E);
+  static const Color buttonTextColor = Color(0xFFF1F1F1);
+
   Widget _form(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.7,
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primaryFixed,
-          border: Border.all(
-              color: Theme.of(context).colorScheme.onSecondaryFixedVariant,
-              width: 2.0)),
+        color: containerColor,
+        border: Border.all(color: borderColor, width: 2.0),
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Column(
         children: [
-          Container(
-            padding: const EdgeInsets.only(
-              top: 0, // Padding superior
-              bottom: 0, // Padding inferior
-              left: 25, // Padding izquierdo
-              right: 25, // Padding derecho
-            ),
-            child: Column(
-              children: [
-                const Text('¡Creemos una cuenta!'),
-                const SizedBox(
-                  height: 15,
-                ),
-                const TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Nombre Completo',
-                    hintText: 'Nombre Completo',
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                    prefixIcon: Icon(Icons.person), // Ícono de candado
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Correo',
-                    hintText: 'Correo',
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                    prefixIcon: Icon(Icons.mail_outline), // Ícono de candado
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Usuario',
-                    hintText: 'Usuario',
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                    prefixIcon:
-                        Icon(Icons.nest_cam_wired_stand), // Ícono de candado
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Contraseña',
-                    hintText: 'Contraseña',
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                    prefixIcon:
-                        Icon(Icons.password_outlined), // Ícono de candado
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Acción del botón
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize:
-                        const Size(double.infinity, 40), // 100% del ancho
-                    backgroundColor:
-                        const Color(0xFFFF7F2A), // Color de fondo personalizado
-                    foregroundColor: Colors.white, // Color del texto blanco
-                    shape: const RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.zero, // Sin redondeo en las esquinas
-                    ),
-                  ),
-                  child: const Text('Crear cuenta'),
-                ),
-              ],
+          const Text(
+            '¡Creemos una cuenta!',
+            style: TextStyle(
+              fontSize: 18,
+              color: textPrimary,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(
-            height: 15,
+          const SizedBox(height: 15),
+          _customTextField(
+            label: 'Nombre Completo',
+            icon: Icons.person,
+          ),
+          const SizedBox(height: 15),
+          _customTextField(
+            label: 'Correo',
+            icon: Icons.mail_outline,
+          ),
+          const SizedBox(height: 15),
+          _customTextField(
+            label: 'Usuario',
+            icon: Icons.nest_cam_wired_stand,
+          ),
+          const SizedBox(height: 15),
+          _customTextField(
+            label: 'Contraseña',
+            icon: Icons.password_outlined,
+            obscureText: true,
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              // Acción del botón
+            },
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size(double.infinity, 45),
+              backgroundColor: buttonColor,
+              foregroundColor: buttonTextColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6),
+              ),
+              elevation: 0,
+            ),
+            child: const Text('Crear cuenta'),
           ),
         ],
       ),
     );
   }
 
+  Widget _customTextField({
+    required String label,
+    required IconData icon,
+    bool obscureText = false,
+  }) {
+    return TextField(
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        labelText: label,
+        hintText: label,
+        labelStyle: const TextStyle(color: textSecondary),
+        hintStyle: const TextStyle(color: textSecondary),
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        prefixIcon: Icon(icon, color: textSecondary),
+        filled: true,
+        fillColor: Color(0xFFF1F1F1),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: borderColor),
+          borderRadius: BorderRadius.circular(6),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: textPrimary, width: 1.5),
+          borderRadius: BorderRadius.circular(6),
+        ),
+      ),
+      style: const TextStyle(color: textPrimary),
+    );
+  }
+
   Widget _layer1(BuildContext context) {
     return SafeArea(
-        child: Column(
-      children: [
-        const SizedBox(
-          height: 50,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
+      child: Column(
+        children: [
+          const SizedBox(height: 50),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
                 height: 150,
                 width: 150,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primaryFixed,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                        color: Theme.of(context).colorScheme.primaryFixed,
-                        width: 10.0)),
+                  color: containerColor,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: borderColor, width: 6.0),
+                ),
                 child: ClipOval(
-                  child: Image.asset('assets/images/zapatillas_correr.jpg',
-                      fit: BoxFit.cover),
-                )),
-          ],
-        ),
-        const SizedBox(
-          height: 40,
-        ),
-        _form(context)
-      ],
-    ));
+                  child: Image.asset(
+                    'assets/images/zapatillas_correr.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 40),
+          _form(context),
+        ],
+      ),
+    );
   }
 
   Widget _buildBody(BuildContext context) {
     return Stack(
       children: [
         Positioned(
-            top: 0, // Coloca el widget en la parte inferior
-            left: 0, // Alinea al inicio del eje horizontal
-            right: 0, // Alinea al final del eje horizontal
-            child: _layer1(context)),
-        Positioned(
           top: 0,
           left: 0,
+          right: 0,
+          child: _layer1(context),
+        ),
+        Positioned(
+          top: 10,
+          left: 10,
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
-            iconSize: 50.0, // Tamaño del icono
-            color: Colors.blue, // Color del icono
+            iconSize: 30,
+            color: textPrimary,
             onPressed: () {
-              // Acción cuando se presiona el botón
-              print('Botón con ícono "Agregar" presionado');
+              Get.back();
             },
           ),
-        )
+        ),
       ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            resizeToAvoidBottomInset: false,
-            appBar: null,
-            body: _buildBody(context)));
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      resizeToAvoidBottomInset: false,
+      appBar: null,
+      body: _buildBody(context),
+    );
   }
 }
