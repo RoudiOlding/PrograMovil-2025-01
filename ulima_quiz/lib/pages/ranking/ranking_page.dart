@@ -5,6 +5,8 @@ import 'ranking_controller.dart';
 class MyRankingPage extends StatelessWidget {
   MyRankingController control = Get.put(MyRankingController());
 
+  MyRankingPage({super.key});
+
   Widget _buildBody(BuildContext context) {
     return const SafeArea(child: Text('Ranking page'));
   }

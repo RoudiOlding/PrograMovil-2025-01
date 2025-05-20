@@ -92,7 +92,7 @@ class CreateAccountPage extends StatelessWidget {
         floatingLabelBehavior: FloatingLabelBehavior.never,
         prefixIcon: Icon(icon, color: textSecondary),
         filled: true,
-        fillColor: Color(0xFFF1F1F1),
+        fillColor: const Color(0xFFF1F1F1),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: borderColor),
           borderRadius: BorderRadius.circular(6),

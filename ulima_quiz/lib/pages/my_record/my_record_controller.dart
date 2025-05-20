@@ -8,7 +8,7 @@ import 'package:ulima_quiz/services/quiz_service.dart';
 class MyRecordController extends GetxController {
   QuizService service = QuizService();
   var quizzes = <Quiz>[].obs;
-  User? user = null;
+  User? user;
 
   void initialFetch(BuildContext context) async {
     Future<ServiceHttpResponse?> response = service.fetchAll(user?.id ?? 0);

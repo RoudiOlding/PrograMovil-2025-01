@@ -17,19 +17,21 @@ class MyRecordPage extends StatelessWidget {
   static const Color buttonColor = Color(0xFF6E6E6E);
   static const Color buttonTextColor = Color(0xFFF1F1F1);
 
+  MyRecordPage({super.key});
+
   Widget _myRecord(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
               children: [
-                const Text(
+                Text(
                   '22',
                   style: TextStyle(fontSize: 24, color: textPrimary),
                 ),
-                const Text(
+                Text(
                   'Cuestionarios\nRealizados',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: textSecondary),
@@ -38,11 +40,11 @@ class MyRecordPage extends StatelessWidget {
             ),
             Column(
               children: [
-                const Text(
+                Text(
                   '4%',
                   style: TextStyle(fontSize: 24, color: textPrimary),
                 ),
-                const Text(
+                Text(
                   'Porcentaje\nde Aciertos',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: textSecondary),
@@ -51,8 +53,8 @@ class MyRecordPage extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 15),
-        const Divider(
+        SizedBox(height: 15),
+        Divider(
           color: borderColor,
           thickness: 1.0,
           indent: 20.0,
@@ -120,7 +122,7 @@ class MyRecordPage extends StatelessWidget {
             const SizedBox(height: 24),
             Obx(() {
               return Expanded(
-                child: control.quizzes == null || control.quizzes.isEmpty
+                child: control.quizzes.isEmpty
                     ? const Center(
                         child: Text(
                           'No hay quizzes disponibles',

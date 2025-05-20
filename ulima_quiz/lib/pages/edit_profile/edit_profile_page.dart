@@ -5,6 +5,8 @@ import 'edit_profile_controller.dart';
 class EditProfilePage extends StatelessWidget {
   EditProfileController control = Get.put(EditProfileController());
 
+  EditProfilePage({super.key});
+
   Widget _buildBody(BuildContext context) {
     return const SafeArea(child: Text('Edit profile'));
   }

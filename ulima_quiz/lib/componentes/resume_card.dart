@@ -65,7 +65,7 @@ class ResumeCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          Wrap(
+          const Wrap(
             spacing: 8,
             runSpacing: 4,
             children: [

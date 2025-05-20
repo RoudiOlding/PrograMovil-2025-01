@@ -5,6 +5,8 @@ import 'new_quiz_controller.dart';
 class MyNewQuizPage extends StatelessWidget {
   MyNewQuizController control = Get.put(MyNewQuizController());
 
+  MyNewQuizPage({super.key});
+
   Widget _buildBody(BuildContext context) {
     return const SafeArea(child: Text('New quiz'));
   }

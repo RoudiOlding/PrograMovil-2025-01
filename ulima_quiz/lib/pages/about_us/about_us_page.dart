@@ -5,6 +5,8 @@ import 'about_us_controller.dart';
 class AboutUsPage extends StatelessWidget {
   AboutUsController control = Get.put(AboutUsController());
 
+  AboutUsPage({super.key});
+
   Widget _buildBody(BuildContext context) {
     return const SafeArea(child: Text('About us'));
   }
