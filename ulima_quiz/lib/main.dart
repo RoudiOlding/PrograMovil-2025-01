@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         '/sign-in': (context) => SignInPage(),
         '/create-account': (context) => CreateAccountPage(),
         '/recover-password': (context) => RecoverPasswordPage(),
-        '/home': (context) => HomePage(),
+        '/home': (context) => const HomePage(),
         '/about-us': (context) => AboutUsPage(),
         '/edit-profile': (context) => EditProfilePage(),
       },
